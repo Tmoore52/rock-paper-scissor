@@ -1,0 +1,6 @@
+Take Input from Player, Rock/Paper/Scissor
+Get computer choice with random number
+Compare player and computer choices
+    if players win, print you win!
+    if computer wins, print you lose!
+Keep tally of wins and losses up to 5 

@@ -1,3 +1,6 @@
+const playerSelection = ""
+const computerSelection = getComputerChoice() 
+
 function getComputerChoice() {
   if (Math.floor(Math.random() * 3) === 0) {
     return "rock";
@@ -9,7 +12,8 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-
+  playerSelection = prompt("Pick Rock, Paper, or Scissors").toLowerCase();
+  
   if (playerSelection === "rock" && computerSelection === "rock") {
     return "Tie";
   } else if (playerSelection === "paper" && computerSelection === "paper") {
@@ -31,17 +35,13 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-const playerSelection = prompt("Pick Rock, Paper, or Scissors").toLowerCase();
-const computerSelection = getComputerChoice();
-
 function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound(playerSelection, computerSelection)
-        
-    }
-
+  for (let i = 0; i < 5; i++) {
+    playRound(playerSelection, computerSelection);
+  }
 }
 
-console.log(playerSelection)
-console.log(computerSelection)
+// console.log(playerSelection);
+console.log(computerSelection);
+// console.log(playRound(playerSelection, computerSelection));
 console.log(game());

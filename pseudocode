@@ -4,3 +4,8 @@ Compare player and computer choices
     if players win, print you win!
     if computer wins, print you lose!
 Keep tally of wins and losses up to 5 
+
+Game loop
+PlayRound loop 5 times
+    if player wins, add to tally and loop
+    else if computer wins add to tally and loop

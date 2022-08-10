@@ -1,0 +1,38 @@
+Take Input from Player, Rock/Paper/Scissor
+Get computer choice with random number
+Compare player and computer choices
+    if players win, print you win!
+    if computer wins, print you lose!
+Keep tally of wins and losses up to 5 
+
+
+Start with score and round win variables
+    if player wins === 1
+    if computer wins === 0
+    if tie === 2
+playRound() changed to those results
+Loop playRound()
+    if playerWins add to player score
+    if computerWins add to computer score
+    Play to 5 rounds
+
+STARTING FRESH
+
+Game of Rock paper scissor to 5
+    variable of player wins
+    variable of computer wins
+    variable player choice via prompt
+    variable computer choice via random number function 1-3
+
+    Game Loop {    
+        playRound
+        if playerChoice===Computer Choice, return tie
+        if player choice > computer choice, player wins++
+        if computer choice > player choice, computer wins++
+        declare winner if playerWins || computerWins > 5 
+    }
+
+    
+
+
+

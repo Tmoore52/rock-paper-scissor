@@ -1,5 +1,6 @@
-const playerSelection = ""
-const computerSelection = getComputerChoice() 
+let result;
+let playerWins = 0;
+let computerWins = 0;
 
 function getComputerChoice() {
   if (Math.floor(Math.random() * 3) === 0) {
@@ -11,37 +12,45 @@ function getComputerChoice() {
   }
 }
 
-function playRound(playerSelection, computerSelection) {
-  playerSelection = prompt("Pick Rock, Paper, or Scissors").toLowerCase();
-  
-  if (playerSelection === "rock" && computerSelection === "rock") {
-    return "Tie";
-  } else if (playerSelection === "paper" && computerSelection === "paper") {
-    return "Tie";
-  } else if (playerSelection === "scissor" && computerSelection === "scissor") {
-    return "Tie";
-  } else if (playerSelection === "rock" && computerSelection === "paper") {
-    return "Computer wins! Paper beats Rock!";
-  } else if (playerSelection === "rock" && computerSelection === "scissor") {
-    return "Player wins! Rock beats Scissors!";
-  } else if (playerSelection === "paper" && computerSelection === "rock") {
-    return "Player wins! Paper beats Rock!";
-  } else if (playerSelection === "paper" && computerSelection === "scissor") {
-    return "Computer wins! Scissors beats paper!";
-  } else if (playerSelection === "scissor" && computerSelection === "rock") {
-    return "Computer wins! Rock beats scissors!";
-  } else if (playerSelection === "scissor" && computerSelection === "paper") {
-    return "Player wins! Scissors beat paper!";
+function playRound(playerChoice, computerChoice) {
+  if (playerChoice === computerChoice) {
+    return result = 0;
+  } else if (
+    (playerChoice === "rock" && computerChoice === "scissor") ||
+    (playerChoice === "paper" && computerChoice === "rock") ||
+    (playerChoice === "scissor" && computerChoice === "paper")
+  ) {
+    return result = 1;
+  } else if (
+    (computerChoice === "rock" && playerChoice === "scissor") ||
+    (computerChoice === "paper" && playerChoice === "rock") ||
+    (computerChoice === "scissor" && playerChoice === "paper")
+  ) {
+    return result = 2;
   }
 }
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    playRound(playerSelection, computerSelection);
-  }
+function game(playerWins, computerWins) {
+  do {
+    playerChoice = prompt("Pick Rock, Paper, or Scissor").toLowerCase();
+    computerChoice = getComputerChoice();
+    if (playRound(playerChoice, computerChoice)) {
+      result = 1;
+      console.log("Player wins!");
+      return playerWins + 1;
+    } else if (playRound(playerChoice, computerChoice)) {
+      result = 2;
+      console.log("Computer Wins");
+      return computerWins + 1; 
+    } else if (playRound(playerChoice, computerChoice)) {
+      result = 0;
+      return "Tie!";
+    }
+  } while (playerWins <= 5 || computerWins <= 5);
 }
 
-// console.log(playerSelection);
-console.log(computerSelection);
-// console.log(playRound(playerSelection, computerSelection));
-console.log(game());
+// console.log(playRound());
+// console.log(player);
+// console.log(computer);
+
+console.log(game(0, 0));

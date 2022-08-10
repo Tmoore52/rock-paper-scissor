@@ -1,4 +1,4 @@
-let result;
+let result = 0;
 let playerWins = 0;
 let computerWins = 0;
 
@@ -14,43 +14,49 @@ function getComputerChoice() {
 
 function playRound(playerChoice, computerChoice) {
   if (playerChoice === computerChoice) {
-    return result = 0;
+    return (result = "tie");
   } else if (
     (playerChoice === "rock" && computerChoice === "scissor") ||
     (playerChoice === "paper" && computerChoice === "rock") ||
     (playerChoice === "scissor" && computerChoice === "paper")
   ) {
-    return result = 1;
+    return (result = "player");
   } else if (
     (computerChoice === "rock" && playerChoice === "scissor") ||
     (computerChoice === "paper" && playerChoice === "rock") ||
     (computerChoice === "scissor" && playerChoice === "paper")
   ) {
-    return result = 2;
+    return (result = "computer");
   }
 }
 
 function game(playerWins, computerWins) {
   do {
     playerChoice = prompt("Pick Rock, Paper, or Scissor").toLowerCase();
-    computerChoice = getComputerChoice();
-    if (playRound(playerChoice, computerChoice)) {
-      result = 1;
+    computerChoice = "scissor";
+    console.log(playerChoice);
+    console.log(computerChoice);
+    // console.log(result);
+    playRound(playerChoice, computerChoice);
+    if (result === "player") {
       console.log("Player wins!");
-      return playerWins + 1;
-    } else if (playRound(playerChoice, computerChoice)) {
-      result = 2;
+      playerWins++;
+      console.log(playerWins);
+    } else if (result === "computer") {
       console.log("Computer Wins");
-      return computerWins + 1; 
-    } else if (playRound(playerChoice, computerChoice)) {
-      result = 0;
-      return "Tie!";
+      computerWins++;
+      console.log(computerWins);
+    } else if (result === "tie") {
+      console.log("Tie!");
     }
-  } while (playerWins <= 5 || computerWins <= 5);
+  } while (playerWins < 5 && computerWins < 5)
+  {
+    if (computerWins === 5) {
+      return "Computer wins the match! Refresh to start again";
+    } else if (playerWins === 5) {
+      return "Player wins the match! Refresh to start again";
+    }
+  }
 }
-
-// console.log(playRound());
-// console.log(player);
-// console.log(computer);
 
 console.log(game(0, 0));

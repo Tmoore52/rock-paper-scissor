@@ -2,6 +2,10 @@ let result = 0;
 let playerWins = 0;
 let computerWins = 0;
 
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissor = document.querySelector("#scissor");
+
 function getComputerChoice() {
   if (Math.floor(Math.random() * 3) === 0) {
     return "rock";
@@ -10,7 +14,7 @@ function getComputerChoice() {
   } else {
     return "scissor";
   }
-}
+};
 
 function playRound(playerChoice, computerChoice) {
   if (playerChoice === computerChoice) {
@@ -28,12 +32,30 @@ function playRound(playerChoice, computerChoice) {
   ) {
     return (result = "computer");
   }
+  console.log(result);
 }
 
+rock.addEventListener("click", () => {
+  playRound("rock", getComputerChoice());
+  console.log(getComputerChoice());
+  console.log(result);
+});
+
+paper.addEventListener("click", () => {
+  playRound("paper", getComputerChoice());
+  console.log(result);
+});
+
+scissor.addEventListener("click", () => {
+  playRound("scissor", getComputerChoice());
+  console.log(result);
+});
+
+/*
 function game(playerWins, computerWins) {
   do {
     playerChoice = prompt("Pick Rock, Paper, or Scissor").toLowerCase();
-    computerChoice = "scissor";
+    computerChoice = getComputerChoice();
     console.log(playerChoice);
     console.log(computerChoice);
     // console.log(result);
@@ -60,3 +82,4 @@ function game(playerWins, computerWins) {
 }
 
 console.log(game(0, 0));
+*/
